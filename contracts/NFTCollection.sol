@@ -361,6 +361,11 @@ contract NFTCollection is ERC1155PresetMinterPauserSupplyHolder, ERC2771Context,
         _setRoyaltyBps(_royaltyBps);
     }
 
+    /// @dev Lets a module admin set the royalty recipient.
+    function setRoyaltyRecipient(address _royaltyRecipient) external onlyModuleAdmin {
+        _setRoyaltyRecipient(_royaltyRecipient);
+    }
+
     /// @dev Sets contract URI for the storefront-level metadata of the contract.
     function setContractURI(string calldata _URI) external onlyModuleAdmin {
         _contractURI = _URI;
